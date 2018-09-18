@@ -1,0 +1,131 @@
+   <!-- SIDEBAR - START -->
+
+   <div class="page-sidebar fixedscroll expandit" id="sidebarCustomId">
+
+		<!-- MAIN MENU - START -->
+		   <div class="page-sidebar-wrapper" id="main-menu-wrapper"> 
+
+			   <!-- USER INFO - START -->
+			   <div class="profile-info row">
+
+				   <div class="profile-image col-4">
+
+					   <a href="#"  id="a">
+						   <img alt="" src="{{admin_profile_pic}}" class="img-fluid rounded-circle">
+					   </a>
+
+				   </div>
+
+				   <div class="profile-details col-8">
+
+					   <h3>
+						   <a href="#">{{currentUser.user.userFirstName}}</a>
+
+						   <!-- Available statuses: online, idle, busy, away and offline -->
+						   <span class="profile-status online"></span>
+					   </h3>
+
+					   <p class="profile-title">Administrator</p>
+
+				   </div>
+
+			   </div>
+			   <!-- USER INFO - END -->
+
+              <br>
+			   <ul class='wraplist'>	
+
+					<li class="has-submenu" *ngFor="let pmenu of rolePermissionMenu;let index=index" routerLinkActive="open" [class.has-submenu]="(pmenu.subMenuLabel1.length>0)" routerLinkActiveOptions="{ exact: true }"  aria-haspopup="true"> 
+						<a  routerLink="/{{pmenu.menuRouterLink}}">
+							<i class="{{pmenu.menuIcon}}"></i>
+							<span class="title">{{pmenu.menuLabel}}</span>
+							<span class="arrow " *ngIf="(pmenu.subMenuLabel1.length>0)"  (click)="menuToggle()" ></span>
+						</a>
+						<ul class="sub-menu"  *ngIf="(pmenu.subMenuLabel1.length>0)">
+							<li *ngFor="let subMenuLabel1 of pmenu.subMenuLabel1;let index=index"> 
+								<a class="" routerLink="/{{subMenuLabel1.subMenuRouterLink}}" >{{subMenuLabel1.subMenuLabel}}</a>
+							</li>
+							
+						</ul>
+					</li>
+				  <!-- <li class=""> 
+					   <a href="index-blog.html">
+						   <i class="fa fa-dashboard"></i>
+						   <span class="title">Dashboard</span>
+					   </a>
+				   </li>
+				   <li class="open"> 
+					   <a href="javascript:;">
+						   <i class="fa fa-sitemap"></i>
+						   <span class="title">Categories</span>
+						   <span class="arrow "></span>
+					   </a>
+					   <ul class="sub-menu" >
+						   <li>
+							   <a class="" href="blo-categories.html" >All Categories</a>
+						   </li>
+						   <li>
+							   <a class="" href="blo-category-add.html" >Add Category</a>
+						   </li>
+						   <li>
+							   <a class="" href="blo-category-edit.html" >Edit Category</a>
+						   </li>
+					   </ul>
+				   </li>
+				   <li class=""> 
+					   <a href="javascript:;">
+						   <i class="fa fa-files-o"></i>
+						   <span class="title">Pages</span>
+						   <span class="arrow "></span>
+					   </a>
+					   <ul class="sub-menu" >
+						   <li>
+							   <a class="" href="blo-pages.html" >All Pages</a>
+						   </li>
+						   <li>
+							   <a class="" href="blo-page-add.html" >Add Page</a>
+						   </li>
+						   <li>
+							   <a class="" href="blo-page-edit.html" >Edit Page</a>
+						   </li>
+						   <li>
+							   <a class="" href="blo-page-view.html" >View Page</a>
+						   </li>
+					   </ul>
+				   </li>
+				   <li class=""> 
+					   <a href="javascript:;">
+						   <i class="fa fa-user"></i>
+						   <span class="title">Users</span>
+						   <span class="arrow "></span>
+					   </a>
+					   <ul class="sub-menu" >
+						   <li>
+							   <a class="" href="blo-users.html" >All Users</a>
+						   </li>
+						   <li>
+							   <a class="" href="blo-user-add.html" >Add User</a>
+						   </li>
+						   <li>
+							   <a class="" href="blo-user-edit.html" >Edit User</a>
+						   </li>
+						   <li>
+							   <a class="" href="blo-user-profile.html" >User Profile</a>
+						   </li>
+					   </ul>
+				   </li> -->
+					
+					
+					
+					
+
+			   </ul>
+
+				
+
+		   </div>
+		   <!-- MAIN MENU - END -->
+
+
+	   </div>
+	   <!--  SIDEBAR - END -->

@@ -1,0 +1,177 @@
+
+      <div class="col-12">
+        <div class="page-title">
+    
+            <div class="pull-left">
+                <!-- PAGE HEADING TAG - START -->
+    
+                <h1 class="title">Add Individual Employer</h1>
+                <!-- PAGE HEADING TAG - END -->
+            </div>
+    
+            <div class="pull-right hidden-xs">
+                <ol class="breadcrumb">
+                    <li>
+                        <a routerLink="/">
+                            <i class="fa fa-home"></i>Home</a>
+                    </li>
+                    <li>
+                        <a routerLink="/employee">
+                            <i class="fa fa-list-ol"></i>Employer</a>
+                    </li>
+                    <li class="active">
+                        <strong>Add Individual Employer</strong>
+                    </li>
+    
+                </ol>
+            </div>
+    
+        </div>
+       
+    </div>
+    
+      <div class="col-12">
+          <div class="page-title">
+
+              <div class="float-left">
+                  <!-- PAGE HEADING TAG - START -->
+            
+              </div>
+              <div class="float-right">
+                 <!-- <a [routerLink]="['add-subadmin']"> <i class="fa fa-plus"></i>Dashboard </a>-->
+
+              </div>
+
+          </div>
+      </div>
+      <div class="clearfix"></div>
+      <!-- MAIN CONTENT AREA STARTS -->
+
+      <div class="col-xl-12">
+          <section class="box ">
+                <div class="content-body ">
+                  <div class="row">
+                      <div class="col-12">
+                        <div class="container">
+                          <form [formGroup]="userForm" (submit)="saveUser()">
+                               
+                                <div  class="form-group row">
+                                    <div class="col-sm-3">
+                                        <label class="mt-2" for="firstName"><strong>First Name*</strong></label>
+                                    </div>
+                                    <div  class="col-sm-9">
+                                        <input  type="text" formControlName="firstName" class="form-control" id="firstName" maxlength="40" placeholder="First Name"/> 
+                                    </div>
+                                </div>
+
+                                <div  class="form-group row">
+                                    <div class="col-sm-3">
+                                        <label class="mt-2" for="lastName"><strong>Last Name*</strong></label>
+                                    </div>
+                                    <div  class="col-sm-9">
+                                        <input  type="text" formControlName="lastName" class="form-control" id="lastName" maxlength="40" placeholder="Last Name"/> 
+                                    </div>
+                                </div>
+                               
+                                 <div  class="form-group row">
+                                    <div class="col-sm-3">
+                                        <label class="mt-2" for="email"><strong>Email*</strong></label>
+                                    </div>
+                                    <div  class="col-sm-9">
+                                        <input type="text" formControlName="email"  class="form-control" max="40" id="email" placeholder="Email"/>  <br>
+                                       
+                                   </div>
+                                </div>
+                                <div  class="form-group row">
+                                    <div class="col-sm-3">
+                                        <label class="mt-2" for="phoneNumber"><strong>Mobile No*</strong></label>
+                                    </div>
+                                    <div  class="col-sm-9">
+                                        
+                                        <input type="text" formControlName="phoneNumber" class="form-control phone_number" maxlength="10" id="phoneNumber" name="phoneNumber" placeholder="Phone Number" />
+                                      
+                                    </div>
+                                </div>
+                               
+                                <div  class="form-group row">
+                                    <div class="col-sm-3">
+                                        <label class="mt-2" for="password"><strong>Password*</strong></label>
+                                    </div>
+                                    <div  class="col-sm-9">
+                                        <input type="password" formControlName="password"  class="form-control" max="40" id="password" placeholder="Password" />  <br>
+                                       
+                                   </div>
+                                </div>
+                                <div  class="form-group row">
+                                    <div class="col-sm-3">
+                                        <label class="mt-2" for="confirmpassword"><strong>Confirm Password*</strong></label>
+                                    </div>
+                                    <div  class="col-sm-9">
+                                        <input type="password"  class="form-control" max="40" id="confirmpassword"  placeholder="Confirm Password" />  <br>
+                                      
+                                   </div>
+                                </div>
+                      
+                                <div  class="form-group row">
+                                    <div class="col-sm-3">
+                                        <label class="mt-2" for="countryCode"><strong>Country*</strong></label>
+                                    </div>
+                                    <div  class="col-sm-9">
+                                        <input type="text" formControlName="countryCode"  class="form-control" max="40" id="countryCode"  placeholder="Country" />  <br>
+                                       
+                                   </div>
+                                </div>
+                                <div  class="form-group row">
+                                    <div class="col-sm-3">
+                                        <label class="mt-2" for="address"><strong>Address*</strong></label>
+                                    </div>
+                                    <div  class="col-sm-9">
+                                        <ng4geo-autocomplete (componentCallback)="autoCompleteCallback1($event)" ></ng4geo-autocomplete>
+                                        <input type="hidden" formControlName="address" name="address" id="address">
+                                    </div>
+                                 </div>
+
+                                 <div  class="form-group row">
+                                    <div class="col-sm-3">
+                                        <label class="mt-2" for="name"><strong>Employer's image*</strong></label>
+                                    </div>
+                                    <div  class="col-sm-9">
+                                        <div class="drop-container" ngFileDrop [options]="options" (uploadOutput)="onUploadOutput($event)" [uploadInput]="uploadInput" [ngClass]="{ 'is-drop-over': dragOver }">
+                                         <p-fileUpload  customUpload="true"
+                                        accept="image/*" (uploadHandler)="myUploadergallery($event)"></p-fileUpload>
+                                      </div>
+                                      
+                                        <div style="color:green;"></div>
+                                        
+                                     </div>
+                                 </div>
+                      
+                                 <div  class="form-group row">
+                                    <div class="col-sm-3">
+                                        <label class="mt-2" for="name"><strong></strong></label>
+                                    </div>
+                                    <div  class="col-sm-9">
+                                        <button type="submit"  class="btn btn-primary btn-block">Add User</button>
+                                    </div>
+                                </div>    
+                               
+                            </form>
+                  
+                         
+                         </div>
+                      </div>
+                  </div>
+              </div>
+          </section>
+      </div>
+
+
+
+
+
+
+    
+
+
+
+

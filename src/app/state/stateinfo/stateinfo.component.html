@@ -1,0 +1,98 @@
+
+      <div class="col-12">
+          <div class="page-title">
+      
+              <div class="pull-left">
+                  <!-- PAGE HEADING TAG - START -->
+      
+                  <h1 class="title">Manage State Lists</h1>
+                  <!-- PAGE HEADING TAG - END -->
+              </div>
+      
+              <div class="pull-right hidden-xs">
+                  <ol class="breadcrumb">
+                      <li>
+                          <a routerLink="/">
+                              <i class="fa fa-home"></i>Home</a>
+                      </li>
+                      <li class="active">
+                          <strong>State Lists</strong>
+                      </li>
+      
+                  </ol>
+              </div>
+      
+          </div>
+          <div class="custum-links" style="position: absolute; right: 15px; z-index: 1">
+              <a routerLink="/state/add-state" style="font-weight: bold;">
+                  <i class="fa fa-plus"></i> Add State </a> &nbsp;
+             
+          </div>
+      </div>
+      
+        <div class="col-12">
+            <div class="page-title">
+  
+                <div class="float-left">
+                    <!-- PAGE HEADING TAG - START -->
+              
+                </div>
+                <div class="float-right">
+                   <!-- <a [routerLink]="['add-subadmin']"> <i class="fa fa-plus"></i>Dashboard </a>-->
+  
+                </div>
+  
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <!-- MAIN CONTENT AREA STARTS -->
+  
+        <div class="col-xl-12">
+            <section class="box ">
+                  <div class="content-body ">
+                    <div class="row">
+                        <div class="col-12">
+                          <div class="container" style="margin-left: 0;max-width: 1299px;">
+  
+                            <div class="pagination-data" style="overflow: scroll;height:600px;min-height:600px;">
+    
+                            <table id="example-11" class="display table table-bordered table-hover table-condensed dataTable no-footer" cellspacing="0" width="100%">
+                                <thead>
+                                    <tr>
+                                      <th>S.No.</th>
+                                      <th> State Name </th>
+                                      <th> Action </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                  <tr *ngFor="let conlist of States; let i=index" class="ng-scope">
+                                        <td class="ng-binding"> {{i+1}} </td>
+                                        <td class="ng-binding"> {{conlist.stateName}} </td>
+                                        <td style="min-width:120px;">
+                                            <i class="fa fa-trash ng-pristine text-danger ng-untouched ng-valid ng-empty" ng-model="_id" data-toggle="modal" data-target="#myModal-delete" aria-hidden="true" title="Delete user" (click)="deleteStates(conlist._id)"></i> &nbsp;
+  
+                                            <a [routerLink]="['edit-state', conlist._id]">
+                                                <i class="fa fa-eye text-primary" aria-hidden="true" title="view state"></i>
+                                            </a> &nbsp; <a [routerLink]="['edit-state', conlist._id]">
+                                                <i class="fa fa-edit text-success" aria-hidden="true" title="edit state"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+  
+                                </tbody>
+                            </table>
+                            <!-- ********************************************** -->
+                            </div>
+                           </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+  
+  
+  
+  
+  
+  
+      

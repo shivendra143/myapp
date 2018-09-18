@@ -1,0 +1,171 @@
+
+      <div class="col-12">
+        <div class="page-title">
+    
+            <div class="pull-left">
+                <!-- PAGE HEADING TAG - START -->
+    
+                <h1 class="title">Add Country</h1>
+                <!-- PAGE HEADING TAG - END -->
+            </div>
+    
+            <div class="pull-right hidden-xs">
+                <ol class="breadcrumb">
+                    <li>
+                        <a routerLink="/">
+                            <i class="fa fa-home"></i>Home</a>
+                    </li>
+                    <li>
+                        <a routerLink="/country">
+                            <i class="fa fa-list-ol"></i>Country Lists</a>
+                    </li>
+                    <li class="active">
+                        <strong>Add Country</strong>
+                    </li>
+    
+                </ol>
+            </div>
+    
+        </div>
+     
+    </div>
+    
+      <div class="col-12">
+          <div class="page-title">
+
+              <div class="float-left">
+                  <!-- PAGE HEADING TAG - START -->
+            
+              </div>
+              <div class="float-right">
+                 <!-- <a [routerLink]="['add-subadmin']"> <i class="fa fa-plus"></i>Dashboard </a>-->
+
+              </div>
+
+          </div>
+      </div>
+      <div class="clearfix"></div>
+      <!-- MAIN CONTENT AREA STARTS -->
+    
+      <div class="col-xl-12">
+            <section class="box ">
+                  <div class="content-body ">
+                    <div class="row">
+                        <div class="col-12">
+                          <div class="container">
+                            <form [formGroup]="userForm" (submit)="saveUser()">
+                                 
+                                <div  class="form-group row">
+                                      <div class="col-sm-3">
+                                          <label class="mt-2" for="countryName"><strong>Country Name*</strong></label>
+                                      </div>
+                                      <div  class="col-sm-9">
+                                        <ng4geo-autocomplete (componentCallback)="autoCompleteCallback1($event)" ></ng4geo-autocomplete>
+                                        <input type="hidden" formControlName="countryName" name="countryName" id="address">
+                                        <input type="hidden" formControlName="latitude" name="lat" id="lat" >
+                                        <input type="hidden" formControlName="longitude" name="lng" id="lng" >  </div>
+                                  </div>
+  
+                                  
+                        
+                                  <div  class="form-group row">
+                                      <div class="col-sm-3">
+                                          <label class="mt-2" for="countryCode"><strong>Country Code*</strong></label>
+                                      </div>
+                                      <div  class="col-sm-9">
+                                          <input type="text" formControlName="countryCode"  class="form-control" max="40" id="countryCode"  placeholder="Country Code" />  <br>
+                                         
+                                     </div>
+                                  </div>
+                                  <div  class="form-group row">
+                                      <div class="col-sm-3">
+                                          <label class="mt-2" for="capital"><strong>Capital</strong></label>
+                                      </div>
+                                      <div  class="col-sm-9">
+                                          <input type="text" formControlName="capital"  class="form-control" max="100" id="capital"  placeholder="Country Code" />  <br>
+                                         
+                                     </div>
+                                  </div>
+                                  <div  class="form-group row">
+                                      <div class="col-sm-3">
+                                          <label class="mt-2" for="name_official"><strong>Office address</strong></label>
+                                      </div>
+                                      <div  class="col-sm-9">
+                                          <input type="text" formControlName="name_official"  class="form-control" max="100" id="name_official"  placeholder="Office address" />  <br>
+                                         
+                                     </div>
+                                  </div>
+                                  <div  class="form-group row">
+                                      <div class="col-sm-3">
+                                          <label class="mt-2" for="dialCode"><strong>Dial Code</strong></label>
+                                      </div>
+                                      <div  class="col-sm-9">
+                                          <input type="text" formControlName="dialCode"  class="form-control" max="100" id="dialCode"  placeholder="Dial Code" />  <br>
+                                         
+                                     </div>
+                                  </div>
+                                  <div  class="form-group row">
+                                      <div class="col-sm-3">
+                                          <label class="mt-2" for="countryStatus"><strong>Status*</strong></label>
+                                      </div>
+                                      <div  class="col-sm-9">
+                                            <select id="countryStatus" formControlName="countryStatus" class="form-control" >
+                                                    <option *ngFor="let s of allstatus" [ngValue]="s.value">{{ s.name }}</option>
+                                            </select>
+                                          
+                                      </div>
+                                   </div>
+  
+                                   <div  class="form-group row">
+                                      <div class="col-sm-3">
+                                          <label class="mt-2" for="name"><strong>Country Logo*</strong></label>
+                                      </div>
+                                      <div  class="col-sm-9">
+                                          <label for="fileToUpload">
+                                             <input type="File" class="form-control" name="fileToUpload" id="fileToUpload" (change)="myUploaderNew($event)">
+                                            <input type="hidden" formControlName="flag_27" id="flag_27" >
+                                           </label>
+                                          <div style="color:green;">{{msg}}</div>
+                                      </div>
+                                   </div>
+
+                                 <!--  <div  class="form-group row">
+                                      <div class="col-sm-3">
+                                          <label class="mt-2" for="name"><strong>Country Logo*</strong></label>
+                                      </div>
+                                      <div  class="col-sm-9">
+                                          <div class="drop-container" ngFileDrop [options]="options" (uploadOutput)="onUploadOutput($event)" [uploadInput]="uploadInput" [ngClass]="{ 'is-drop-over': dragOver }">
+                                           <p-fileUpload  customUpload="true"
+                                          accept="image/*" (uploadHandler)="myUploader($event)"></p-fileUpload>
+                                        </div>
+                                        
+                                          <div style="color:green;"></div>
+                                          
+                                       </div>
+                                   </div> -->
+                        
+                                   <div  class="form-group row">
+                                      <div class="col-sm-3">
+                                          <label class="mt-2" for="name"><strong></strong></label>
+                                      </div>
+                                      <div  class="col-sm-9">
+                                          <button type="submit"  class="btn btn-primary btn-block">Add User</button>
+                                      </div>
+                                  </div>    
+                                 
+                              </form>
+                    
+                           
+                           </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+
+
+
+
+
+    

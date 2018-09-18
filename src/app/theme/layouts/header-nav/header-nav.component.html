@@ -1,0 +1,130 @@
+<div class='page-topbar'>
+	<div class='logo-area'>
+			<h3 class="logo">
+					<i class="fa fa-paw" style="font-size:30px;"></i> &nbsp;<span>Global Drivers</span>
+				
+			</h3>
+	</div>
+	<div class='quick-area'>
+		<div class='float-left'>
+			<ul class="info-menu left-links list-inline list-unstyled">
+				<li class="sidebar-toggle-wrap">
+					<a href="#" data-toggle="sidebar" class="sidebar_toggle" (click)="sidebarToggle()">
+						<i class="fa fa-bars"></i>
+					</a>
+				</li>
+			</ul>
+		</div>
+		<div class='float-right'>
+			<!-- begin::Topbar -->
+			<div class="m-stack__item m-stack__item--fluid m-header-head" id="m_header_nav" style="padding-top: 10px;">
+				<div id="m_header_topbar" class="m-topbar  m-stack m-stack--ver m-stack--general">
+					<div class="m-stack__item m-topbar__nav-wrapper">
+						<ul class="m-topbar__nav m-nav m-nav--inline">
+
+
+
+							<li class="m-nav__item m-topbar__user-profile m-topbar__user-profile--img  m-dropdown m-dropdown--medium m-dropdown--arrow m-dropdown--header-bg-fill m-dropdown--align-right m-dropdown--mobile-full-width m-dropdown--skin-light"
+							 m-dropdown-toggle="click">
+								<a href="#" class="m-nav__link m-dropdown__toggle">
+									<span class="m-topbar__userpic">
+										<img src="{{admin_profile_pic}}" class="m--img-rounded m--marginless m--img-centered" alt="" />
+									</span> &nbsp;&nbsp;
+									<span class="m-topbar__welcome">
+										Hello&nbsp;&nbsp;
+									</span>
+									<span class="m-topbar__username">
+										{{currentUser.user.userFirstName}}
+									</span>
+
+								</a>
+								<div class="m-dropdown__wrapper">
+									<span class="m-dropdown__arrow m-dropdown__arrow--right m-dropdown__arrow--adjust"></span>
+									<div class="m-dropdown__inner">
+
+										<div class="m-dropdown__body">
+											<div class="m-dropdown__content">
+												<ul class="m-nav m-nav--skin-light">
+													<li class="m-nav__section m--hide">
+														<span class="m-nav__section-text">
+															Section
+														</span>
+													</li>
+													<li class="m-nav__item">
+														<a routerLink="/profile" class="m-nav__link">
+															<i class="m-nav__link-icon flaticon-profile-1"></i>
+															<span class="m-nav__link-title">
+																<span class="m-nav__link-wrap">
+																	<span class="m-nav__link-text">
+																		My Profile
+																	</span>
+
+																</span>
+															</span>
+														</a>
+													</li>
+													<li class="m-nav__item">
+														<a routerLink="/profile/my-activity" class="m-nav__link">
+															<i class="m-nav__link-icon flaticon-share"></i>
+															<span class="m-nav__link-text">
+																Activity
+															</span>
+														</a>
+													</li>
+													<li class="m-nav__item">
+														<a routerLink="/profile/update-password" class="m-nav__link">
+															<i class="m-nav__link-icon flaticon-chat-1"></i>
+															<span class="m-nav__link-text">
+																Change Password
+															</span>
+														</a>
+													</li>
+
+													<li class="m-nav__separator m-nav__separator--fit"></li>
+													<li class="m-nav__item">
+														<!-- <a routerLink="/snippets/pages/user/login-1" class="btn m-btn--pill btn-secondary m-btn m-btn--custom m-btn--label-brand m-btn--bolder"
+														 routerLink="/logout" data-toggle="modal" data-target="#logoutModal"> -->
+														<a class="btn m-btn--pill btn-primary m-btn m-btn--custom m-btn--label-brand m-btn--bolder"
+														  data-toggle="modal" routerLink="/logout" id="logout">
+															Logout
+														</a>
+													</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</div>
+							</li>
+
+						</ul>
+					</div>
+				</div>
+			</div>
+			<!-- end::Topbar -->
+		</div>
+	</div>
+
+</div>
+<!-- END TOPBAR -->
+
+
+<div class="modal fade" id="logoutModal" role="dialog">
+	<div class="modal-dialog">
+
+		<!-- Modal content-->
+		<div class="modal-content" >
+			<div class="modal-body">
+				<p style="font-weight: bold">Are you sure, You want to logout?</p>
+				<p style="text-align:center">
+					<a routerLink="/logout" style="margin-right: 3%;">
+							<button type="button" class="btn btn-primary" data-dismiss="modal">Yes</button>
+					</a>
+					<a>
+						<button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+					</a>
+				</p>
+			</div>
+		</div>
+
+	</div>
+</div>

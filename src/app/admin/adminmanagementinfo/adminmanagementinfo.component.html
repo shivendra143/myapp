@@ -1,0 +1,217 @@
+<div class="col-12">
+    <div class="page-title">
+
+        <div class="float-left">
+            <!-- PAGE HEADING TAG - START -->
+            <h1 class="title">Admin Profile</h1>
+            <!-- PAGE HEADING TAG - END -->
+        </div>
+        <div class="pull-right">
+            <ol class="breadcrumb">
+                <li>
+                    <a routerLink="/">
+                        <i class="fa fa-home"></i>Home</a>
+                </li>
+                <li class="active">
+                    <a routerLink="/">
+                        <i class="fa fa-user"></i>My Profile</a>
+                </li>
+            </ol>
+        </div>
+    </div>
+</div>
+<div class="clearfix"></div>
+<!-- MAIN CONTENT AREA STARTS -->
+
+<div class="col-xl-12">
+    <section class="box ">
+
+        <div class="content-body  view-details">
+
+            <div class="row ">
+                <div class="col-12 col-md-12 view-profile-section col-lg-12">
+                    <header class="pan">
+                        <!--                  <h2 class="title float-left">Profile Details</h2>-->
+                        <div class="actions panel_actions float-right">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <button type="submit" class="btn edit-btn btn-primary">
+                                        <i class="fa fa-edit"></i>&nbsp;Edit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </header>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="uprofile-image">
+                                <!-- <label for="fileToUpload">
+                                    <span class="ui-button-icon-left ui-clickable fa fa-fw fa-pencil"></span>
+                                    <input type="file" name="fileToUpload" id="fileToUpload" accept="image/*" (change)="onFileadminprofile($event)">
+                                </label> -->
+                                <!--<div *ngIf="user.image">
+                                                           <img src="{{user.image}}" class="img-fluid">
+                                                        </div> -->
+                                <div *ngIf="user.image">
+                                    <img src="{{admin_profile_pic}}" class="img-fluid" data-toggle="modal" data-target="#openImage">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-8 admin-pro">
+
+                            <div class="form-group">
+                                <label class="form-label">
+                                    <strong class="pr-3">Name: </strong>
+                                </label> {{user.name}}
+
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">
+                                    <strong class="pr-3">Phone: </strong>
+                                </label> {{user.phone}}
+
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">
+                                    <strong class="pr-3">Email: </strong>
+                                </label> {{user.email}}
+
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">
+                                    <strong class="pr-3">Role: </strong>
+                                </label> {{user.role}}
+
+                            </div>
+
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+
+                    <div class="row">
+
+                    </div>
+
+                </div>
+
+                <div class="col-12 col-md-12 col-lg-12 edit-section display-none">
+                    <header class="pan">
+                        <!--                  <h2 class="title float-left">Profile Details</h2>-->
+                        <div class="actions panel_actions float-right">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <button type="submit" class="btn  btn-primary mr-2" (click)="updateAdminProfile()">
+                                        <i class="fa fa-save"></i>&nbsp;Update</button>
+                                    <button type="submit" class="btn cancel-btn-profile btn-primary">
+                                        <i class="fa fa-times-circle"></i>&nbsp;Cancel</button>
+                                </div>
+                            </div>
+                        </div>
+                    </header>
+                    <div class="row ">
+                        <div class="col-md-4">
+                            <div class="uprofile-image">
+                                <label for="fileToUpload">
+                                    <span class="ui-button-icon-left ui-clickable fa fa-fw fa-pencil"></span>
+                                    <input type="file" name="fileToUpload" id="fileToUpload" accept="image/*" (change)="onFileadminprofile($event)">
+                                </label>
+                                <!--<div *ngIf="user.image">
+                                                           <img src="{{user.image}}" class="img-fluid">
+                                                        </div> -->
+                                <div *ngIf="user.image">
+                                    <img src="{{admin_profile_pic}}" class="img-fluid">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-8 admin-pro">
+                            <div class="row">
+                                <div class="col-md-8 offset-md-0">
+                                    <div class="form-group row">
+                                        <div class="col-sm-2">
+                                            <label for="name" class="mt-2">
+                                                <strong>Name:</strong>
+                                            </label>
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <input type="text" [(ngModel)]="user.name" class="form-control" maxlength="40" (change)="onNameChange()">
+                                            <p *ngIf="name_invalid_error" style="color:red;">
+                                                {{invalid_name_error_msg}}
+                                            </p>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <div class="col-sm-2">
+                                            <label for="name" class="mt-2">
+                                                <strong>Phone: </strong>
+                                            </label>
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <input type="text" [(ngModel)]="user.phone" (change)="phoneCheck()" class="form-control" maxlength="10" (keyup)="onChange()">
+                                            <p *ngIf="phone_invalid_error" style="color:red;">
+                                                {{invalid_error_msg}}
+                                            </p>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group row ">
+                                        <div class="col-sm-2">
+                                            <label for="name" class="mt-2">
+                                                <strong>Email: </strong>
+                                            </label>
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <input disabled type="text" value="{{user.email}}" class="form-control">
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <div class="col-sm-2">
+                                            <label for="name" class="mt-2">
+                                                <strong>Role: </strong>
+                                            </label>
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <input disabled type="text" value="{{user.role}}" class="form-control">
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="clearfix"></div>
+                    </div>
+
+                    <div class="row">
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="openImage" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+            <div class="modal-body">
+                <img src="{{admin_profile_pic}}">
+            </div>
+
+        </div>
+    </div>
+</div>
